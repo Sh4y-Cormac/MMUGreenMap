@@ -15,7 +15,14 @@
             <div id="left-panel-header">
                 <h1 id="header-text">MMUGreenMap</h1>
             </div>
-            <h1>Buttons to allow filtering of the type of landmark</h1>
+            <p id="button-header">Landmarks:</p>
+            <div id="button-area">
+                <button id="recycling-bins-btn" class="landmark-btns" onclick="toggleSelectButton(event.target)">Recycling Bins</button>
+                <button id="water-refill-btn" class="landmark-btns" onclick="toggleSelectButton(event.target)">Water Refill Stations</button>
+                <button id="accessibility-btn" class="landmark-btns" onclick="toggleSelectButton(event.target)">Accessibility Areas</button>
+                <button id="green-spaces-btn" class="landmark-btns" onclick="toggleSelectButton(event.target)">Green Spaces</button>
+                <button id="bike-racks-btn" class="landmark-btns" onclick="toggleSelectButton(event.target)">Bicycle Racks</button>
+            </div>
         </div>
         <div id="right-panel">
             <h1>THIS AREA WILL BE THE MAP</h1>

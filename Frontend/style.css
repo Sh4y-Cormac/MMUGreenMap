@@ -46,3 +46,37 @@ html, body{
     justify-content: center;
     align-items: center;
 }
+
+#button-header{
+    margin: 2rem 0 0.4rem 0.4rem;
+}
+
+#button-area{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.landmark-btns{
+    margin: 0rem 0.1rem 2rem 0.1rem;
+    border: 0;
+    border-radius: 0.2rem;
+    height: 2.4rem;
+    background-color: rgb(227, 227, 227);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.landmark-btns:hover{
+    background-color: rgb(158, 158, 158);
+}
+
+.selected{
+    background-color: rgb(47, 68, 88);
+    color: white;
+}
+
+.selected:hover{
+    background-color: rgb(47, 68, 88);
+}
