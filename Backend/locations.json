@@ -1,32 +1,32 @@
-[
-  {
-    "building": "FCI",
-    "accessibility": ["Ramp"],
-    "latitude": 2.92816,
-    "longitude": 101.641433
-  },
-  {
-    "building": "FCI",
-    "accessibility": ["Entrance Ramp"],
-    "latitude": 2.928868,
-    "longitude": 101.640821
-  },  
-  {
-    "building": "FOM ",
-    "accessibility": ["Ramp"],
-    "latitude": 2.930106,
-    "longitude": 101.64122
-  },
+  [
     {
-    "building": "FOM ",
-    "accessibility": ["Bridge"],
-    "latitude": 2.928773,
-    "longitude": 101.641654
-  },  
+      "building": "FCI",
+      "accessibility": ["Ramp"],
+      "latitude": 2.92816,
+      "longitude": 101.641433
+    },
     {
-    "building": "FAIE ",
-    "accessibility": ["Ramp"],
-    "latitude": 2.928115,
-    "longitude": 101.641624
-  }
-]
+      "building": "FCI",
+      "accessibility": ["Entrance Ramp"],
+      "latitude": 2.928868,
+      "longitude": 101.640821
+    },
+    {
+      "building": "FOM",
+      "accessibility": ["Ramp"],
+      "latitude": 2.930106,
+      "longitude": 101.64122
+    },
+    {
+      "building": "FOM",
+      "accessibility": ["Bridge"],
+      "latitude": 2.928773,
+      "longitude": 101.641654
+    },
+    {
+      "building": "FAIE",
+      "accessibility": ["Ramp"],
+      "latitude": 2.928115,
+      "longitude": 101.641624
+    }
+  ]
