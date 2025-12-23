@@ -8,6 +8,7 @@ import {
   where
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
+let infoWindow;
 let panelButtonToggled = false
 
 let mapMMU;
@@ -26,6 +27,7 @@ function initialiseMap(){
     });
 
     mapMMU = map;
+    infoWindow = new google.maps.InfoWindow();
 }
 
 window.toggleSelectButton = function(e) {
@@ -118,7 +120,25 @@ async function getLandmarks(){
         const marker = createMarker(landmark.latitude, landmark.longitude, icon);
         marker.class = markerType;
         markers.push(marker)
-    })
+
+         // Popup content the descriptions will be inside firebase
+        const popupContent = `
+            <div style="max-width:220px">
+                 <h3>${landmark.name}</h3>
+                 <img 
+                    src="${landmark.imageUrl || "/images/default.jpg"}"
+                    style="width:100%; border-radius:6px; margin-bottom:6px;"
+                 >
+                 <p>${landmark.description}</p>
+            </div>
+        `;
+
+        // Click event
+        marker.addListener("click", () => {
+            infoWindow.setContent(popupContent);
+            infoWindow.open(mapMMU, marker);
+        });
+    });
 }
 
 initialiseMap();
