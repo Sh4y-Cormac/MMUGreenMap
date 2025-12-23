@@ -28,5 +28,53 @@
       "accessibility": ["Ramp"],
       "latitude": 2.928115,
       "longitude": 101.641624
+    },
+    {
+      "building": "FOM",
+      "accessibility": ["Green Areas/Relaxation Spots"],
+      "latitude": 2.931118,
+      "longitude": 101.641914
+    },
+    {
+      "building": "FOM",
+      "accessibility": ["Green Areas/Relaxation Spots"],
+      "latitude": 2.931067,
+      "longitude": 101.64216
+    },
+    {
+      "building": "FCM",
+      "accessibility": ["Green Areas/Relaxation Spots"],
+      "latitude": 2.927376,
+      "longitude": 101.642029
+    },
+    {
+      "building": "FAIE",
+      "accessibility": ["Green Areas/Relaxation Spots"],
+      "latitude": 2.926248,
+      "longitude": 101.641686
+    },
+    {
+      "building": "Starbees",
+      "accessibility": ["Green Areas/Relaxation Spots"],
+      "latitude": 2.927572,
+      "longitude": 101.643241
+    },
+    {
+      "building": "Misri Plaza",
+      "accessibility": ["Green Areas/Relaxation Spots"],
+      "latitude": 2.928131,
+      "longitude": 101.641883
+    },
+    {
+      "building": "FCI",
+      "accessibility": ["Green Areas/Relaxation Spots"],
+      "latitude": 2.928468,
+      "longitude": 101.641619
+    },
+    {
+      "building": "FCI",
+      "accessibility": ["Green Areas/Relaxation Spots"],
+      "latitude": 2.929215,
+      "longitude": 101.641389
     }
   ]
