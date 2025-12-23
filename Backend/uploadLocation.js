@@ -1,5 +1,6 @@
 const admin = require('firebase-admin');
 const fs = require('fs');
+const path = require('path');
 
 const serviceAccount = require('./serviceAccountKey.json');
 
@@ -7,23 +8,33 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
 
-const db = admin.firestore(); // Firestore
+const db = admin.firestore();
 
-// Read JSON file
-const locationData = JSON.parse(fs.readFileSync('locations.json', 'utf8'));
-
-// Reference to the 'locations' collection
-const collectionRef = db.collection('locations');
+// ✅ Always read JSON from the same folder as this file
+const locationData = JSON.parse(
+  fs.readFileSync(path.join(__dirname, 'locations.json'), 'utf8')
+);
 
 async function uploadData() {
   try {
     for (const item of locationData) {
-      // Automatically generate a unique document ID
-      await collectionRef.add(item);
+      // Clean building name
+      const building = item.building.trim();
+
+      // Create a stable unique document ID
+      const docId = `${building}_${item.latitude}_${item.longitude}`;
+
+      await db.collection('locations')
+        .doc(docId)
+        .set(
+          { ...item, building },
+          { merge: true }
+        );
     }
-    console.log("Data uploaded successfully to Firestore!");
+
+    console.log("✅ Upload complete (no duplicates).");
   } catch (error) {
-    console.error("Error uploading data:", error);
+    console.error("❌ Error uploading data:", error);
   }
 }
 
