@@ -110,34 +110,50 @@ async function getLandmarks(){
         ...doc.data()
     }));
     data.forEach((landmark) => {
-        let icon;
-        let markerType;
-        if(landmark.accessibility){
-            icon = "/images/oku_pin.png";
-            markerType = "accessibility-btn";
+        if(landmark.latitude && landmark.longitude){
+            let icon;
+            let markerType;
+            if(landmark.accessibility[0].slice(0, 14) == "Recycling Bins"){
+                icon = "/images/recycling_pin.png";
+                markerType = "recycling-bins-btn";
+            }
+            else if(landmark.accessibility[0] == "Green Areas/Relaxation Spots" || landmark.accessibility[0] == "green areas" || landmark.accessibility[0].slice(0,10) == "greenareas"){
+                icon = "/images/greenery_pin.png";
+                markerType = "green-spaces-btn";
+            } else if(landmark.accessibility[0].slice(0, 13) == "Water Refills"){
+                icon = "/images/water_refill_pin.png";
+                markerType = "water-refill-btn";
+            } else if(landmark.accessibility[0].slice(0, 13) == "Bicycle Racks"){
+                icon = "/images/bike_pin.png";
+                markerType = "bike-racks-btn";
+            } else {
+                icon = "/images/oku_pin.png";
+                markerType = "accessibility-btn";
+            }
+
+            const marker = createMarker(landmark.latitude, landmark.longitude, icon);
+            marker.class = markerType;
+            markers.push(marker)
+
+            // Popup content the descriptions will be inside firebase
+            const popupContent = `
+                <div style="max-width:220px">
+                    <h3>${landmark.name ? landmark.name : landmark.accessibility[0]}</h3>
+                    <img 
+                        src="${`/images/${landmark.image}` || "/images/default.jpg"}"
+                        style="width:100%; border-radius:6px; margin-bottom:6px;"
+                    >
+                    <p>${landmark.description ? landmark.description : "Description"}</p>
+                </div>
+            `;
+
+            // Click event
+            marker.addListener("click", () => {
+                infoWindow.setContent(popupContent);
+                infoWindow.open(mapMMU, marker);
+            });
         }
-
-        const marker = createMarker(landmark.latitude, landmark.longitude, icon);
-        marker.class = markerType;
-        markers.push(marker)
-
-         // Popup content the descriptions will be inside firebase
-        const popupContent = `
-            <div style="max-width:220px">
-                 <h3>${landmark.name}</h3>
-                 <img 
-                    src="${landmark.imageUrl || "/images/default.jpg"}"
-                    style="width:100%; border-radius:6px; margin-bottom:6px;"
-                 >
-                 <p>${landmark.description}</p>
-            </div>
-        `;
-
-        // Click event
-        marker.addListener("click", () => {
-            infoWindow.setContent(popupContent);
-            infoWindow.open(mapMMU, marker);
-        });
+        
     });
 }
 
