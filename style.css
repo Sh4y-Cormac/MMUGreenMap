@@ -241,3 +241,54 @@ p{
         width: 80%;
     }
 }
+/* ================= COMMENTS SECTION ================= */
+
+#comments-section {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+#comments-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+#comments-section textarea {
+    width: 100%;
+    min-height: 80px;
+    resize: vertical;
+    font-family: inherit;
+    padding: 0.4rem;
+    box-sizing: border-box;
+}
+
+#comments-section button {
+    margin-top: 0.4rem;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.2rem;
+    background-color: rgb(46, 84, 119);
+    color: white;
+    font-weight: 600;
+}
+
+#comments-section button:hover {
+    background-color: rgb(30, 60, 90);
+}
+
+#comments {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.8rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#comments li {
+    background: #f2f2f2;
+    padding: 0.4rem;
+    margin-bottom: 0.4rem;
+    border-radius: 0.2rem;
+    font-size: 0.9rem;
+}
