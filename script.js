@@ -12,7 +12,17 @@ import {
 
 import {
   getAuth,
-  signInAnonymously
+  import { onAuthStateChanged } from
+"https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+let userReady = false;
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    userReady = true;
+  }
+});
+
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
 // ================= MAP VARIABLES =================
